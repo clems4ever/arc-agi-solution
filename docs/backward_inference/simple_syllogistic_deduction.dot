@@ -1,0 +1,11 @@
+digraph {
+    a_to_c[label="a->c"];
+    a_to_b[label="a->b"];
+    b_to_c[label="b->c"];
+
+    deduction[label="syllogistic_deduc", penwidth=2];
+
+    a_to_c -> deduction;
+    deduction -> a_to_b;
+    deduction -> b_to_c;
+}

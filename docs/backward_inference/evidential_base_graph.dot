@@ -1,0 +1,27 @@
+digraph {
+    a_to_b[label="a->b\n<1, 0.9>"];
+    b_to_c[label="b->c\n<1, 0.9>"];
+    b_to_d[label="b->d\n<1, 0.9>"];
+
+    a_to_c[label="a->c\n<1, 0.81>\nEB{b->c, a->b}"];
+    a_to_d[label="a->d\n<1, 0.81>\nEB{a->b, b->d}"];
+
+    c_to_d[label="c->d\nCan we compute the tv?"];
+
+    deduction1[label="deduction", penwidth=2];
+    deduction2[label="deduction", penwidth=2];
+    induction3[label="induction", penwidth=2];
+
+    a_to_b -> deduction1;
+    b_to_c -> deduction1;
+
+    a_to_b -> deduction2;
+    b_to_d -> deduction2;
+
+    deduction1 -> a_to_c ;
+    deduction2 -> a_to_d ;
+
+    a_to_c -> induction3
+    a_to_d -> induction3
+    induction3 -> c_to_d;
+}

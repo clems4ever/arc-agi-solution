@@ -1,0 +1,18 @@
+digraph {
+    a_to_c[label="a->c"];
+    a_to_b[label="a->b"];
+    b_to_c[label="b->c"];
+    x_b_c[label="$x -> b => $x -> c"];
+
+    var_intro[label="var_intro", penwidth=2];
+    var_elim[label="var_elim", penwidth=2];
+
+    a_to_c -> var_intro;
+    var_intro -> a_to_b;
+    var_intro -> x_b_c;
+
+    x_b_c -> var_elim
+    var_elim -> b_to_c
+    var_elim -> a_to_b
+
+}
