@@ -3,14 +3,15 @@ digraph {
     b_to_c[label="b->c\n<1, 0.9>"];
     b_to_d[label="b->d\n<1, 0.9>"];
 
-    a_to_c[label="a->c\n<1, 0.81>\nEB{b->c, a->b}"];
-    a_to_d[label="a->d\n<1, 0.81>\nEB{a->b, b->d}"];
+    a_to_c[label="a->c"];
+    a_to_d[label="a->d"];
 
-    c_to_d[label="c->d\n<1, 0.396>\nEB{a->b, b->c, b->d}"];
+    c_to_d[label="c->d"];
 
     deduction1[label="deduction", penwidth=2];
     deduction2[label="deduction", penwidth=2];
     induction3[label="induction", penwidth=2];
+    induction4[label="induction", penwidth=2];
 
     a_to_b -> deduction1;
     b_to_c -> deduction1;
@@ -24,4 +25,9 @@ digraph {
     a_to_c -> induction3
     a_to_d -> induction3
     induction3 -> c_to_d;
+
+    b_to_c -> induction4
+    b_to_d -> induction4
+    induction4 -> c_to_d
+    
 }
